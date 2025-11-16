@@ -6,14 +6,13 @@ public class hangman
 {
     static void Main()
     {
-        Console.WriteLine("Guess a letter");
+        Console.WriteLine("\nGuess a letter");
         int characterCode = Console.Read();
-        char inputCharacter = (char)characterCode;
-        Console.WriteLine(inputCharacter);
-        Console.WriteLine();
-        Console.WriteLine("You pressed: " + inputCharacter);
-        bool isCharacter = false;
 
+        char inputCharacter = (char)characterCode;
+        Console.WriteLine("\nYou pressed: " + inputCharacter);
+
+        bool isCharacter = false;
         int turns = 4;
         string word = "balls";
 
@@ -21,19 +20,19 @@ public class hangman
         {
             Console.WriteLine("Character " + inputCharacter + " is in word");
             isCharacter = true;
+            IsRightCharacter(isCharacter, turns);
         }
-
         else
         {
             Console.WriteLine("Character " + inputCharacter + " is not in word");
             isCharacter = false;
-
+            IsRightCharacter(isCharacter, turns);
         }
         // List<string> word_list = new List<string> { "apple", "grapes", "kiwi" };
-        GameOver(isCharacter, turns, word);
+        GameOver(turns, word);
     }
 
-    public static void GameOver(bool isCharacter, int turns, string word)
+    public static void GameOver(int turns, string word)
     {
         if (IsOutOfTurns(turns))
         {
@@ -48,14 +47,12 @@ public class hangman
     {
         if (isCharacter)
         {
-            Console.WriteLine("Congratulations! You found the right letter!");
-            // turns remain
+            Console.WriteLine("Turns remaining: " + turns);
         }
-
         else
         {
-            Console.WriteLine("Oops! You did not find the right letter!");
-            // decrement turns
+            turns--;
+            Console.WriteLine("Turns remaining: " + turns);
         }
     }
 
