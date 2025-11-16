@@ -1,0 +1,10 @@
+prompt player to guess letter
+player gets 4 chances to guess the letter
+
+if the player guesses correct letter, then add that letter, chances remain the same, and body remains same
+else the player did not guess the letter, and need to remove 1 from chances, and add body part
+if player has no remaining chances, then player failed to guess the word
+if the body is complete, the player failed to guess the word correctly
+if player guesses the word correctly, then the player wins, word guessed correctly
+
+
